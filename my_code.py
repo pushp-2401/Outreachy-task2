@@ -15,10 +15,10 @@ def editarticle(page):
     page.text = text
     try:
         page.save("Saving test edit")
-        return 1
+        return ("Save worked")
     except:
         print ("That didn't work!")
-        return 0
+        return ("Error")
 
         
 #get the information about article from Q-value assigned in wikidata
@@ -46,7 +46,7 @@ def printwikidata(wd_item):
             print ('P31 label: ' + p31_item_dict['labels']['en'])
     except:
         print ("That didn't work!")
-    return 0
+    return ("function work is done")
 
 def editwikidata(wd_item, propertyid, value):
     qid = wd_item.title()
@@ -62,7 +62,7 @@ def editwikidata(wd_item, propertyid, value):
     if text == 'y':
         wd_item.addClaim(newclaim, summary=u'Adding test claim')
 
-    return 0
+    return ("editing done")
 
 
 
