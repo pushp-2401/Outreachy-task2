@@ -1,9 +1,3 @@
-# import requests
-
-# # You may need to enforce the use of utf-8
-# import sys
-# reload(sys)
-# sys.setdefaultencoding('UTF8')
 import pywikibot
 from pywikibot import pagegenerators
 import numpy as np
@@ -26,16 +20,6 @@ def editarticle(page):
         print ("That didn't work!")
         return 0
 
-# def editarticle2(page):
-    # text = page.get()
-    # text = text.replace('This is a test edit','Isto é uma edição de teste')
-    # page.text = text
-    # try:
-        # page.save("Saving test edit")
-        # return 1
-    # except:
-        # print "That didn't work!"
-        # return 0
         
 #get the information about article from Q-value assigned in wikidata
 
@@ -80,36 +64,9 @@ def editwikidata(wd_item, propertyid, value):
 
     return 0
 
-# def parsesite(url):
-    # try:
-        # r = requests.get(url)
-        # websitetext = r.text
-    # except:
-        # print ('Problem fetching page!')
-        # return 0
-    # # print websitetext
-    # split = websitetext.split("<h1 style='display:none'>")
-    # i = 0
-    # for item in split:
-        # i+=1
-        # # Skip the top part
-        # if i > 2:
-            # # print item
-            # print ('Title: ' + item.split('</h1>')[0].strip() + '\n')
-            # print ('Museum: ' + item.split("strong>Museu:</strong><span itemprop='publisher'>")[1].split("</span>")[0].strip() + "\n")
-    # return 0
 
-# From https://gist.github.com/ettorerizza/7eaebbd731781b6007d9bdd9ddd22713
-# def search_entities(site, itemtitle):
-     # params = { 'action' :'wbsearchentities', 
-                # 'format' : 'json',
-                # 'language' : 'en',
-                # 'type' : 'item',
-                # 'search': itemtitle}
-     # request = api.Request(site=site, parameters=params)
-     # return request.submit()
 
-# accessping page made for task1 
+# accessing page made for task1 
 
 page = pywikibot.Page(enwiki_repo, 'User:Pushp24/Outreachy 1')
 test = editarticle(page)
@@ -122,43 +79,8 @@ wd_item = pywikibot.ItemPage(enwiki_repo, test1)
 printwikidata(wd_item)
 print('\n')
 
-# page = pywikibot.ItemPage(ptwiki_repo, 'Q511405')
-# test = printwikidata(page)
 
-# sparql = "SELECT ?item WHERE { ?item wdt:P31 wd:Q184356 } LIMIT 10"
-# generator = pagegenerators.WikidataSPARQLPageGenerator(sparql, site=ptwiki_repo)
-# for page in generator:
-    # printwikidata(page)
-
-# targetcat = 'Categoria:Telescópios'
-# cat = pywikibot.Category(ptwiki, targetcat)
-# subcats = pagegenerators.SubCategoriesPageGenerator(cat, recurse=False);
-# for subcat in subcats:
-    # print subcat.title()
-
-# pages = pagegenerators.CategorizedPageGenerator(cat, recurse=False);
-# for page in pages:
-    # print page.title()
-
-# template = pywikibot.Page(ptwiki, 'Predefinição:Info/Telescópio')
-# targets = template.embeddedin()
-# for target in targets:
-    # print target.title()
-
-# targets = pagegenerators.RandomPageGenerator(total=10, site=ptwiki, namespaces='14')
-# for target in targets:
-    # print target.title()
-
-# wikidataEntries = search_entities(ptwiki_repo, "Neuromat")
-# if wikidataEntries['search'] != []:
-    # results = wikidataEntries['search']
-    # numresults = len(results)
-    # for i in range(0,numresults):
-        # qid = results[i]['id']
-        # label = results[i]['label']
-        # print qid + " - " + label
-
-# Assigning     Q-value in the code
+# Assigning Q-value in the code
 testqid = 'Q4115189' # Wikidata sandbox
 testproperty = 'P31' # instance of
 testvalue = 'Q3938'  # Sandbox
